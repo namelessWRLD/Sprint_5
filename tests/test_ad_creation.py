@@ -25,9 +25,9 @@ class TestAdCreation:
         driver.find_element(*AD_TITLE_INPUT).send_keys("Новый велосипед")
         driver.find_element(*AD_DESCRIPTION_INPUT).send_keys("Почти не использовался")
         driver.find_element(*AD_PRICE_INPUT).send_keys("5000")
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable(AD_CATEGORY_DROPDOWN)).click()
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable(AD_CATEGORY_DROPDOWN))[0].click()
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable(AD_CATEGORY_OPTION)).click()
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable(AD_CITY_DROPDOWN)).click()
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable(AD_CITY_DROPDOWN))[1].click()
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable(CITY_OPTION_SPB)).click()
         driver.find_element(*AD_STATE_RADIO).click()
         driver.find_element(*PUBLISH_BUTTON).click()
@@ -39,7 +39,7 @@ class TestAdCreation:
         driver.find_element(*PROFILE_BUTTON).click()
 
         # Ожидание загрузки профиля
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//h1[contains(text(), 'Мой профиль')]")))
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located(PROFILE_HEADER))
 
         # Скролл к блоку объявлений
         WebDriverWait(driver, 10).until(EC.presence_of_element_located(MY_ADS_SECTION))

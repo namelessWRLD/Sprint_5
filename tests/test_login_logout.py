@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from locators import *
 
 
+
 def test_user_login(driver):
     driver.get("https://qa-desk.stand.praktikum-services.ru")
     driver.find_element(*LOGIN_REGISTER_BUTTON).click()
