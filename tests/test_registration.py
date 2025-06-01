@@ -51,3 +51,4 @@ class TestRegistration:
 
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(EXISTING_USER_ERROR))
         assert driver.find_element(*EXISTING_USER_ERROR).text == "Ошибка"
+	

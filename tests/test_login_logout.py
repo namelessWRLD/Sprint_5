@@ -12,7 +12,7 @@ def test_user_login(driver):
     driver.find_element(*LOGIN_SUBMIT_BUTTON).click()
 
     WebDriverWait(driver, 5).until(EC.visibility_of_element_located(USER_NAME_HEADER))
-    
+
     assert driver.find_element(*USER_NAME_HEADER).text == "User."
 
 def test_user_logout(driver):
