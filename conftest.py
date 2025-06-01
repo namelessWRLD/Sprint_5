@@ -8,13 +8,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 def driver():
     options = Options()
     options.add_argument("--start-maximized")
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    yield driver
-    driver.quit()
-
-@pytest.fixture
-def driver():
-    options = Options()
     options.add_argument("--disable-popup-blocking")
     options.add_argument("--disable-notifications")
     options.add_argument("--disable-extensions")
@@ -25,7 +18,7 @@ def driver():
         "profile.password_manager_enabled": False
     })
 
-    driver = webdriver.Chrome(options=options)
-    driver.maximize_window()
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
     yield driver
     driver.quit()
