@@ -3,10 +3,8 @@ import string
 from locators import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from helpers.generators import generate_email
 
-
-def generate_email():
-    return "user_" + ''.join(random.choices(string.ascii_lowercase + string.digits, k=6)) + "@test.com"
 
 
 class TestRegistration:
